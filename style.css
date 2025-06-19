@@ -20,11 +20,11 @@
 
 @font-face {
   font-family: 'Avengero Regular';
-  src: url('assets/Fonts/AvengeroRegular-zvgl.ttf') format('truetype');
+  src: url('assets/Fonts/AvengeroRegular-zvgl.woff') format('woff'),
+       url('assets/Fonts/AvengeroRegular-zvgl.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-
 
 /* Body ve HTML temel yapı */
 body, html {
