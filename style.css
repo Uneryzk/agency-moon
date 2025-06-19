@@ -301,12 +301,12 @@ body, html {
   pointer-events: none;
 }
 
- @font-face {
-      font-family: 'MoonFont';
-      src: url('assets/Fonts/AvengeroRegular-zvgl.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
+@font-face {
+  font-family: 'Avengero';
+  src: url('assets/Fonts/AvengeroRegular-zvgl.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
     html, body {
       margin: 0;
@@ -325,13 +325,13 @@ body, html {
       z-index: 0;
     }
 
-    .welcome-to-the-moon {
+.welcome-to-the-moon {
   position: absolute;
   top: 40%;
   width: 100%;
   text-align: center;
   font-size: 5.5rem;
-  font-family: 'MoonFont', sans-serif;
+  font-family: 'Avengero';
   color: white;
   opacity: 0;
   filter: blur(20px);
@@ -347,7 +347,7 @@ body, html {
   filter: blur(10px);
   transform: translateY(10px);
   animation: blurFadeIn 1.5s ease-out forwards;
-  font-family: 'MoonFont', sans-serif;
+  font-family: 'Avengero';
 }
 
 .welcome-move-up {
