@@ -1,0 +1,507 @@
+@font-face {
+  font-family: 'Valorax';
+  src: url('assets/Valorax-lg25V.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ShareTechMono';
+  src: url('assets/ShareTechMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Nike font */
+@font-face {
+  font-family: 'NikeFutura';
+  src: url('assets/NIKE_FUTURA_CN-XB.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avengero';
+  src: url('assets/fonts/AvengeroRegular-zvgl.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Body ve HTML temel yapı */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'NikeFutura', sans-serif;
+  color: #ccc;
+  text-transform: uppercase;
+  background: #000; /* Yedek arka plan */
+}
+
+/* Uzay arka plan videosu */
+#spaceBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.95) blur(0.1px) saturate(0.8);
+  transform: scale(1.01);
+  transition: transform 10s ease;
+}
+
+/* Ay yüzeyi */
+#moonCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* Menü (yuvarlak) */
+.circle-menu {
+  position: absolute;
+  top: 46%;
+  left: 47%;
+  width: 550px;
+  height: 550px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Menü öğeleri */
+.circle-item {
+  position: absolute;
+  width: 160px;
+  height: 20px;
+  text-align: left;
+  color: #ccc;
+  font-size: 20px;
+  font-family: 'NikeFutura', sans-serif;
+  left: 50%;
+  top: 50%;
+
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.1);
+  animation: orbitEntry 1.5s ease-out forwards;
+  animation-delay: 2.0s;
+
+  pointer-events: auto;
+  cursor: default;
+  transition: font-size 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.circle-item:hover {
+  font-size: 23px;
+  transform: rotate(calc(360deg / 7 * var(--i)))
+             translateY(var(--distance, 320px))
+             rotate(calc(-360deg / 7 * var(--i))) 
+             scale(1.2);
+  color: #fff;
+  z-index: 10;
+}
+
+/* Menü animasyonu */
+@keyframes orbitEntry {
+  to {
+    opacity: 1;
+    transform: rotate(calc(360deg / 7 * var(--i)))
+               translateY(var(--distance))
+               rotate(calc(-360deg / 7 * var(--i)));
+  }
+}
+
+/* Uzaylı destek simgesi */
+#alien-bot {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 32px;
+  animation: float 2s infinite ease-in-out;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* Uzaylı zıplama efekti */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+.top-left-menu {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  z-index: 5;
+  font-size: 20px;
+  font-family: 'ShareTechMono', monospace;
+  color: #ffffff;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.top-left-menu .main-title {
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  color: #fff;
+}
+
+.top-left-menu .submenu {
+  margin-top: 5px;
+  display: none;
+  flex-direction: column;
+}
+
+.top-left-menu:hover .submenu {
+  display: flex;
+}
+
+.top-left-menu .submenu a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 4px;
+  transition: color 0.2s;
+}
+
+.top-left-menu .submenu a:hover {
+  color: #fff;
+}
+
+/* Genel welcome-box yazı stili */
+.welcome-box {
+  position: absolute;
+  bottom: 20px;
+  left: 1430px;
+  transform: none;
+  opacity: 0;
+  transition: opacity 1s ease, bottom 1s ease;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #00f0ff;
+  font-size: 15px;
+  text-align: left;
+  z-index: 10;
+  max-width: 200px;
+  width: 50%;
+  line-height: 1.5;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+  font-family: 'ShareTechMono', monospace; /* 👈 GENEL STİL BURADA */
+}
+
+/* 1. kutuiçin özel stil */
+#welcomeMessageBox {
+  font-family: 'Valorax', sans-serif !important; /* 👈 Bu ikisi aynı kalsın */
+}
+
+#welcomeMessageBox {
+  bottom: 60px;
+}
+
+#secondMessageBox {
+  bottom: 60px;
+}
+
+#thirdMessageBox {
+  bottom: 60px;
+}
+
+fourthMessageBox {
+  bottom: 60px;
+}
+
+#fifthMessageBox {
+  bottom: 60px;
+}
+
+#sixthMessageBox,
+#seventhMessageBox {
+  transition: bottom 0.8s ease, opacity 0.8s ease;
+}
+
+#eighthMessageBox {
+  bottom: 30px;
+}
+
+#ninthMessageBox {
+  bottom: 60px;
+}
+
+#tenthMessageBox {
+  bottom: 60px;
+}
+
+/* 🎯 Etiket yazı */
+.calc-label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #00ffff;
+  font-family: 'ShareTechMono', monospace;
+}
+
+/* ✏️ Input kutusu */
+.calc-input {
+  width: 180px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #00f0ff;
+  background: rgba(255, 255, 255, 0.05);
+  color: #00ffff;
+  font-family: 'ShareTechMono', monospace;
+  font-size: 14px;
+  outline: none;
+}
+
+/* 🚨 Hesapla butonu */
+.calc-button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 12px;
+  color: #000;
+  background: #00ffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Valorax', sans-serif;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.calc-button:hover {
+  background: #00ccff;
+  transform: scale(1.05);
+}
+
+/* 🧮 Sonuç yazısı */
+.calc-result {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #00ffcc;
+  font-family: 'ShareTechMono', monospace;
+  text-shadow: 0 0 3px #00f0ff;
+}
+#beam-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 10%, transparent 70%);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+ @font-face {
+      font-family: 'MoonFont';
+      src: url('assets/Fonts/AvengeroRegular-zvgl.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .welcome-message {
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      text-align: center;
+      font-size: 5.5rem;
+      font-family: 'MoonFont', sans-serif;
+      color: white;
+      opacity: 0;
+      filter: blur(20px);
+      transition: all 3.0s ease;
+      text-shadow: 2px 2px 10px black;
+      z-index: 2;
+      letter-spacing: 2px;
+    }
+
+    .welcome-message span {
+      display: inline-block;
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(10px);
+      animation: blurFadeIn 1.5s ease-out forwards;
+      font-family: 'MoonFont', sans-serif;
+    }
+    .welcome-move-up {
+  top: 30% !important;
+}
+
+
+    /* 🌠 Rastgele gecikmeler */
+    .welcome-message span:nth-child(1)  { animation-delay: 0.8s; }
+    .welcome-message span:nth-child(2)  { animation-delay: 1.4s; }
+    .welcome-message span:nth-child(3)  { animation-delay: 1.1s; }
+    .welcome-message span:nth-child(4)  { animation-delay: 2s; }
+    .welcome-message span:nth-child(5)  { animation-delay: 1.6s; }
+    .welcome-message span:nth-child(6)  { animation-delay: 0.9s; }
+    .welcome-message span:nth-child(7)  { animation-delay: 1.8s; }
+    .welcome-message span:nth-child(8)  { animation-delay: 2.4s; }
+    .welcome-message span:nth-child(9)  { animation-delay: 1.3s; }
+    .welcome-message span:nth-child(10) { animation-delay: 2.2s; }
+    .welcome-message span:nth-child(11) { animation-delay: 0.7s; }
+    .welcome-message span:nth-child(12) { animation-delay: 1.9s; }
+    .welcome-message span:nth-child(13) { animation-delay: 1.2s; }
+    .welcome-message span:nth-child(14) { animation-delay: 2.6s; }
+    .welcome-message span:nth-child(15) { animation-delay: 1.5s; }
+    .welcome-message span:nth-child(16) { animation-delay: 2.1s; }
+
+    @keyframes blurFadeIn {
+      from {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+    }
+
+    .agency-description {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 1000px;
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+  color: white;
+  line-height: 1.6;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-shadow: 1px 1px 5px black;
+  z-index: 2;
+
+  /* ✨ Animasyon eklendi */
+  opacity: 0;
+  filter: blur(10px);
+  animation: fadeInBlur 1.2s ease forwards;
+  animation-delay: 7s; /* WELCOME bitince 1s sonra */
+}
+
+
+    .agency-description ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .agency-description li {
+      margin-bottom: 8px;
+    }
+    @keyframes fadeInBlur {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px 10px;
+  border-radius: 8px;
+  z-index: 5;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.alien-top {
+  position: absolute;
+  top: 35px;
+  left: 70px;
+  font-size: 1.5rem;
+  cursor: default;
+  z-index: 4;
+  animation: floatAlien 3s ease-in-out infinite;
+  user-select: none;
+}
+@keyframes floatAlien {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+@font-face {
+  font-family: 'ShareTechMono';
+  src: url('assets/Fonts/ShareTechMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+#launching-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'ShareTechMono', monospace;
+  font-size: 3rem;
+  color: white;
+  z-index: 9999;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  line-height: 1.4;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#launching-message.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#launching-message .line {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#launching-message span {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(10px);
+  animation: revealLetter 0.8s ease-out forwards;
+}
+
+@keyframes revealLetter {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}

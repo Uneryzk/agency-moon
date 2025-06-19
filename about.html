@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>To The Moon Agency</title>
+  <style>
+  #bgVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+  }
+  </style>
+</head>
+<body>
+<!-- Geri Butonu -->
+<a href="index.html" class="back-button">←</a>
+<div class="alien-top">👽</div>
+
+
+<!-- Uzaylı Görseli (Ana sayfadaki ile aynı dosya) -->
+<div class="alien-icon">
+  <img src="assets/alien.gif" alt="Alien" />
+</div>
+
+
+  <!-- 🎥 Arka Plan Videosu -->
+  <video id="bgVideo" autoplay muted loop playsinline>
+    <source src="assets/about-bg.mp4" type="video/mp4" />
+    Tarayıcınız video etiketini desteklemiyor.
+  </video>
+
+  <!-- ✨ Hoşgeldiniz Mesajı -->
+  <div id="welcome" class="welcome-message">
+    <span>W</span><span>E</span><span>L</span><span>C</span><span>O</span><span>M</span><span>E</span><br>
+    <span>T</span><span>O</span>&nbsp;<span>T</span><span>H</span><span>E</span>&nbsp;<span>M</span><span>O</span><span>O</span><span>N</span>
+  </div>
+
+  <!-- 📄 Açıklama Metni -->
+  <div class="agency-description" id="about">
+    <!-- 🌠 Işınlama efekti için div -->
+  <div id="beam-effect"></div>
+    <p><strong>To The Moon Agency,</strong> mağazacılık sektöründe farklı pozisyonlarda kendini kanıtlamış, perakende pazarlama, görsel iletişim ve reklamcılık alanlarında deneyim sahibi profesyonellerin bir araya gelmesiyle 2024 yılında kuruldu.</p>
+    <p><strong>Kurucu ekibimizin,</strong> perakende markalarının yönetim süreçlerinde edindiği saha deneyimi, ajans iş birlikleriyle harmanlanarak; sürdürülebilirlik, etkin operasyon yönetimi ve stratejik iletişim konularında derinlemesine içgörüler geliştirmemizi sağladı.</p>
+    <p>Bu birikimi, güvenilir ve dinamik bir ekip çatısı altında birleştirerek 2024 yılında To The Moon Agency’yi hayata geçirdik.</p>
+    <p><strong>Vizyonumuz;</strong> Yalnızca proje teslim eden değil, değer inşa eden bir iş ortağı olmak. Şeffaf ve güvene dayalı iletişim kurarak, yenilikçi çözümlerle projeleri başarıya ulaştırmayı ve iş ortaklarımızla uzun vadeli iş birlikleri kurmayı hedefliyoruz.</p>
+    <ul>
+      <li><strong>7/24 üretim altyapısı:</strong> Operasyonel süreçlerimiz günün her saati aktif.</li>
+      <li><strong>Saha organizasyonu:</strong> Türkiye genelindeki ekip ağımızla, farklı şehirlerde eş zamanlı lansman, tanıtım ve montaj süreçlerini kusursuz şekilde yürütüyoruz.</li>
+      <li><strong>Gerçek zamanlı iletişim:</strong> Trello, Asana ve Notion gibi dijital platformlar üzerinden müşterilerimizi anlık bilgilendiriyor, süreçlerdeki değişiklikleri hızlıca hayata geçiriyoruz.</li>
+    </ul>
+    <p><strong>Mağazacılık sektöründe deneyimli kadromuzla, sizlere hizmet vermeye hazırız.</strong></li>
+  </div>
+
+  <!-- 🚀 JS Geçiş -->
+  <script>
+    window.addEventListener("load", () => {
+      const welcome = document.getElementById("welcome");
+
+      // Tüm harfleri göster
+      setTimeout(() => {
+        welcome.style.opacity = "1";
+        welcome.style.filter = "blur(0)";
+      }, 2000);
+
+      // 5 saniye sonra yukarı kaydır
+      setTimeout(() => {
+        welcome.style.top = "10%";
+      }, 5000);
+    });
+
+  </script>
+
+</body>
+</html>

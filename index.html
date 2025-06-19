@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To The Moon Agency</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+</head>
+<body style="cursor: url('assets/shuttle-cursor.png') 32 32, auto;">
+
+  <!-- 🔁 Uzay Arka Plan Videosu -->
+  <video id="spaceBackground" autoplay muted loop playsinline>
+    <source src="assets/space-bg.mp4" type="video/mp4" />
+    Tarayıcınız video etiketini desteklemiyor.
+  </video>
+
+  <!-- 🌕 Ay yüzeyi -->
+  <canvas id="moonCanvas"></canvas>
+
+  <!-- 🌌 Ayı Saran Başlıklar -->
+  <div class="circle-menu">
+    <div class="circle-item" style="--i:0; --distance: 310px;">AÇIK HAVA REKLAMLARI</div>
+    <div class="circle-item" style="--i:1; --distance: 360px;">ÖZEL UYGULAMALAR</div>
+    <div class="circle-item" style="--i:2; --distance: 320px;">FUAR VE ETKİNLİK</div>
+    <div class="circle-item" style="--i:3; --distance: 280px;">BİZİ KEŞFEDİN</div>
+    <div class="circle-item" style="--i:4; --distance: 270px;">HAKKIMIZDA</div>
+    <div class="circle-item" style="--i:5; --distance: 320px;">NASIL DESTEK OLUYORUZ</div>
+    <div class="circle-item" style="--i:6; --distance: 320px;">BASKI ÇÖZÜMLERİ</div>
+  </div>
+  <!-- 👽 Uzaylı Canlı Destek -->
+  <div id="alien-bot" title="Canlı Destek 👽">👽</div>
+
+ <!-- 🛏️ Sol Üst Menü (Alt Başlıklarla) -->
+<div class="top-left-menu">
+  <div class="main-title" id="mainTitle">TO THE MOON AGENCY</div>
+  
+  <div class="submenu">
+    <a href="about.html">Hakkımızda</a>
+    <a href="support.html">Nasıl Destek Oluyoruz</a>
+    <a href="print.html">Baskı Çözümleri</a>
+    <a href="retail.html">Mağazacılık Çözümleri</a>
+    <a href="outdoor.html">Açık Hava Reklamları</a>
+    <a href="event.html">Fuar ve Etkinlik</a>
+    <a href="custom.html">Özel Uygulamalar</a>
+    <a href="consulting.html">Proje Danışmanlığı</a>
+    <a href="portfolio.html">Portfolyo</a>
+    <a href="contract.html">İş Sözleşmesi</a>
+    <a href="contact.html">İletişim</a>
+  </div>
+</div>
+
+<div id="launching-message">
+  <div class="line">
+    <span>L</span><span>o</span><span>u</span><span>n</span><span>c</span><span>h</span><span>ı</span><span>n</span><span>g</span>
+  </div>
+  <div class="line">
+    <span>S</span><span>o</span><span>o</span><span>n</span><span>!</span>
+  </div>
+</div>
+
+
+
+
+  <!-- 📅 Mesaj Kutuları (Konumlar Sabitlendi) -->
+  <div id="welcomeMessageBox" class="welcome-box" style="bottom: 70px;"></div>
+  <div id="secondMessageBox" class="welcome-box" style="bottom: 70px;"></div>
+  <div id="thirdMessageBox" class="welcome-box" style="bottom: 70px;"></div>
+  <div id="fourthMessageBox" class="welcome-box wide-box" style="bottom: 70px; opacity: 0;"></div>
+  <div id="fifthMessageBox" class="welcome-box wide-box" style="bottom: 70px; opacity: 0;"></div>
+  <!-- 6. mesaj: Hesaplama kutusu -->
+  <div id="sixthMessageBox" class="welcome-box calculator-box same-width-box" style="opacity: 0; bottom: 60px; left: 90%; transform: translateX(-50%);">
+    <label for="sizeInput" class="calc-label">En x Boy (cm):</label>
+    <input type="text" id="sizeInput" placeholder="örnek: 256x127" class="calc-input" />
+    <button onclick="calculateM2()" class="calc-button">HESAPLA 🚀</button>
+  </div>
+
+  <!-- 7. mesaj: Hesap sonucu -->
+  <div id="seventhMessageBox" class="welcome-box same-width-box" style="opacity: 0; bottom: 30px; left: 90%; transform: translateX(-50%);"></div>
+ <div id="eighthMessageBox" class="welcome-box wide-box" style="opacity: 0;"></div>
+
+  <!-- 📊 Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+
+  <!-- 🧠 JS Kodları -->
+  <script src="script.js"></script>
+
+  <!-- 🎵 Müzik -->
+  <audio id="bgAudio" src="assets/bg-music.mp3" preload="auto" loop></audio>
+
+  <script>
+    // Başlangıçta müzik sessiz olacak şekilde ayarlanıyor
+    window.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("bgAudio");
+      audio.volume = 0; // Başlangıçta ses kapalı
+    });
+
+    // Tıklama olayını yazıya (başlık) bağla
+    document.getElementById("mainTitle").addEventListener("click", () => {
+      const audio = document.getElementById("bgAudio");
+      audio.volume = 0.5;  // Ortalama ses
+      audio.play().then(() => {
+        console.log("🎵 Müzik başarıyla başladı");
+      }).catch((e) => {
+        console.warn("🎵 Ses başlatılamadı:", e);
+      });
+    });
+
+    // Sayfada herhangi bir yere tıklama olayı ekleyebiliriz (optional)
+    document.addEventListener("click", () => {
+      const audio = document.getElementById("bgAudio");
+      audio.volume = 0.5;  // Ortalama ses
+      audio.play().then(() => {
+        console.log("🎵 Müzik başarıyla başladı");
+      }).catch((e) => {
+        console.warn("🎵 Ses başlatılamadı:", e);
+      });
+    });
+  </script>
+  <script>
+  // Sadece ilk tıklamada çalışsın
+  let hasLaunched = false;
+
+  window.addEventListener('click', () => {
+    if (hasLaunched) return;
+    hasLaunched = true;
+
+    const msg = document.getElementById('launching-message');
+    msg.classList.add('visible');
+
+    const spans = msg.querySelectorAll('span');
+    spans.forEach((span, index) => {
+      span.style.animationDelay = `${index * 0.1}s`;
+    });
+  });
+</script>
+
+  <script>
+document.getElementById('aboutBtn').addEventListener('click', function (e) {
+  e.preventDefault(); // Default anchor davranışını durdur
+  const target = document.getElementById('about');
+  const beam = document.getElementById('beam-effect');
+
+  // Efekti görünür yap
+  beam.style.opacity = 1;
+
+  // Sayfayı smooth şekilde kaydır
+  target.scrollIntoView({ behavior: 'smooth' });
+
+  // Efekti yavaşça kaybet
+  setTimeout(() => {
+    beam.style.opacity = 0;
+  }, 1000);
+});
+</script>
+<!-- Işınlama efekti -->
+<div id="beam-effect"></div>
+
+</body>
+</html>
