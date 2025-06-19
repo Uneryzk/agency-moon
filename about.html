@@ -61,6 +61,7 @@
   <script>
   window.addEventListener("load", () => {
     const welcome = document.getElementById("welcome-to-the-moon");
+    if (!welcome) return; // Eğer element yoksa fonksiyondan çık
 
     // Tüm harfleri göster
     setTimeout(() => {
@@ -73,6 +74,7 @@
       welcome.style.top = "10%";
     }, 5000);
   });
+</script>
 </script>
 </body>
 </html>
