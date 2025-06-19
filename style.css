@@ -20,7 +20,7 @@
 
 @font-face {
   font-family: 'Avengero';
-  src: url('assets/Fonts/AvengeroRegular-zvgl.ttf') format('truetype');
+  src: url('assets/fonts/AvengeroRegular-zvgl.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -49,6 +49,7 @@ body, html {
   transform: scale(1.01);
   transition: transform 10s ease;
 }
+
 
 /* Ay yüzeyi */
 #moonCanvas {
@@ -174,7 +175,7 @@ body, html {
 }
 
 /* Genel welcome-box yazı stili */
-.welcome-box {
+.alienkonusmasi-box {
   position: absolute;
   bottom: 20px;
   left: 1430px;
@@ -192,16 +193,17 @@ body, html {
   width: 50%;
   line-height: 1.5;
   box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
-  font-family: 'ShareTechMono', monospace; /* 👈 GENEL STİL BURADA */
+  font-family: 'ShareTechMono', monospace;
 }
+
 
 /* 1. kutuiçin özel stil */
-#welcomeMessageBox {
-  font-family: 'Valorax', sans-serif !important; /* 👈 Bu ikisi aynı kalsın */
+#alienkonusmasiBox {
+  font-family: 'Valorax', sans-serif !important;
 }
 
-#welcomeMessageBox {
-  bottom: 60px;
+.alienkonusmasi-box.wide-box {
+  width: 300px;
 }
 
 #secondMessageBox {
@@ -212,7 +214,7 @@ body, html {
   bottom: 60px;
 }
 
-fourthMessageBox {
+#fourthMessageBox {
   bottom: 60px;
 }
 

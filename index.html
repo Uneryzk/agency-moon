@@ -49,35 +49,31 @@
     <a href="contact.html">İletişim</a>
   </div>
 </div>
-
 <div id="launching-message">
   <div class="line">
-    <span>L</span><span>o</span><span>u</span><span>n</span><span>c</span><span>h</span><span>ı</span><span>n</span><span>g</span>
+    <span>L</span><span>a</span><span>u</span><span>n</span><span>c</span><span>h</span><span>ı</span><span>n</span><span>g</span>
   </div>
   <div class="line">
     <span>S</span><span>o</span><span>o</span><span>n</span><span>!</span>
   </div>
 </div>
+ <!-- 📅 Mesaj Kutuları (Konumlar Sabitlendi) -->
+<div id="welcomeMessageBox" class="alienkonusmasi-box" style="bottom: 70px;"></div>
+<div id="secondMessageBox" class="alienkonusmasi-box" style="bottom: 70px;"></div>
+<div id="thirdMessageBox" class="alienkonusmasi-box" style="bottom: 70px;"></div>
+<div id="fourthMessageBox" class="alienkonusmasi-box wide-box" style="bottom: 70px; opacity: 0;"></div>
+<div id="fifthMessageBox" class="alienkonusmasi-box wide-box" style="bottom: 70px; opacity: 0;"></div>
 
+<!-- 6. mesaj: Hesaplama kutusu -->
+<div id="sixthMessageBox" class="alienkonusmasi-box calculator-box same-width-box" style="opacity: 0; bottom: 60px; left: 90%; transform: translateX(-50%);">
+  <label for="sizeInput" class="calc-label">En x Boy (cm):</label>
+  <input type="text" id="sizeInput" placeholder="örnek: 256x127" class="calc-input" />
+  <button onclick="calculateM2()" class="calc-button">HESAPLA 🚀</button>
+</div>
 
-
-
-  <!-- 📅 Mesaj Kutuları (Konumlar Sabitlendi) -->
-  <div id="welcomeMessageBox" class="welcome-box" style="bottom: 70px;"></div>
-  <div id="secondMessageBox" class="welcome-box" style="bottom: 70px;"></div>
-  <div id="thirdMessageBox" class="welcome-box" style="bottom: 70px;"></div>
-  <div id="fourthMessageBox" class="welcome-box wide-box" style="bottom: 70px; opacity: 0;"></div>
-  <div id="fifthMessageBox" class="welcome-box wide-box" style="bottom: 70px; opacity: 0;"></div>
-  <!-- 6. mesaj: Hesaplama kutusu -->
-  <div id="sixthMessageBox" class="welcome-box calculator-box same-width-box" style="opacity: 0; bottom: 60px; left: 90%; transform: translateX(-50%);">
-    <label for="sizeInput" class="calc-label">En x Boy (cm):</label>
-    <input type="text" id="sizeInput" placeholder="örnek: 256x127" class="calc-input" />
-    <button onclick="calculateM2()" class="calc-button">HESAPLA 🚀</button>
-  </div>
-
-  <!-- 7. mesaj: Hesap sonucu -->
-  <div id="seventhMessageBox" class="welcome-box same-width-box" style="opacity: 0; bottom: 30px; left: 90%; transform: translateX(-50%);"></div>
- <div id="eighthMessageBox" class="welcome-box wide-box" style="opacity: 0;"></div>
+<!-- 7. mesaj: Hesap sonucu -->
+<div id="seventhMessageBox" class="alienkonusmasi-box same-width-box" style="opacity: 0; bottom: 30px; left: 90%; transform: translateX(-50%);"></div>
+<div id="eighthMessageBox" class="alienkonusmasi-box wide-box" style="opacity: 0;"></div>
 
   <!-- 📊 Three.js -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
