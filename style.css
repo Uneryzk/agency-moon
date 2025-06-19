@@ -503,3 +503,83 @@ body, html {
     transform: translateY(0);
   }
 }
+/* --- Responsive Stil Başlangıcı --- */
+
+/* Tablet ve küçük dizüstü (max 1024px) */
+@media (max-width: 1024px) {
+  .welcome-to-the-moon {
+    font-size: 4rem;
+    top: 35%;
+  }
+  .circle-menu {
+    width: 400px;
+    height: 400px;
+    left: 50%;
+    top: 50%;
+  }
+  .circle-item {
+    width: 130px;
+    font-size: 16px;
+  }
+  .agency-description {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+}
+
+/* Büyük telefonlar ve küçük tabletler (max 768px) */
+@media (max-width: 768px) {
+  .welcome-to-the-moon {
+    font-size: 3rem;
+    top: 30%;
+    padding: 0 10px;
+  }
+  .circle-menu {
+    width: 320px;
+    height: 320px;
+  }
+  .circle-item {
+    width: 110px;
+    font-size: 14px;
+  }
+  .agency-description {
+    width: 95%;
+    font-size: 0.85rem;
+  }
+  .calc-button {
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Telefonlar (max 480px) */
+@media (max-width: 480px) {
+  .welcome-to-the-moon {
+    font-size: 2.2rem;
+    top: 25%;
+    padding: 0 10px;
+  }
+  .circle-menu {
+    width: 250px;
+    height: 250px;
+  }
+  .circle-item {
+    width: 90px;
+    font-size: 12px;
+  }
+  .agency-description {
+    width: 95%;
+    font-size: 0.8rem;
+    padding: 15px 20px;
+  }
+  .calc-button {
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+  .calc-input {
+    width: 100%;
+  }
+  /* Eğer başka küçük ekran için özel düzenlemeler gerekirse buraya ekle */
+}
+
+/* --- Responsive Stil Sonu --- */
